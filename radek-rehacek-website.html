@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radek Řeháček — IT Project Manager / Agile Delivery Lead</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FFFFFF;
+  --bg2:#F5F7FA;
+  --bg3:#EEF1F6;
+  --line:#E0E5EF;
+  --line2:#C8D0E0;
+  --navy:#0D2352;
+  --navy2:#1A3A7A;
+  --navy3:#1E4498;
+  --muted:#6B7FA3;
+  --text:#3D4F70;
+  --ink:#0D1B3E;
+  --gold:#C8920A;
+  --goldbg:#FFF8E6;
+}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:22px;letter-spacing:0.04em;color:var(--navy)}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);transition:color 0.2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-li{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--muted);border:1px solid var(--line2);padding:6px 14px;border-radius:20px;transition:all 0.2s}
+.nav-li:hover{color:var(--navy);border-color:var(--navy)}
+.nav-cta{background:var(--navy);color:#fff;padding:9px 22px;border-radius:20px;font-size:13px;font-weight:500;transition:background 0.2s;cursor:pointer;border:none}
+.nav-cta:hover{background:var(--navy2)}
+
+.hero{padding:100px 2.5rem 80px;background:var(--bg);position:relative;overflow:hidden}
+.hero-bg{position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse 80% 70% at 80% 40%, rgba(13,35,82,0.05) 0%, transparent 70%);pointer-events:none}
+.hero-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
+.hero-eyebrow{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy3);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::before{content:'';display:inline-block;width:24px;height:1.5px;background:var(--navy3)}
+.hero-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(48px,7vw,80px);line-height:0.95;color:var(--ink);letter-spacing:-0.01em;margin-bottom:0.5rem}
+.hero-name span{color:var(--navy3)}
+.hero-title-line{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:600;color:var(--muted);letter-spacing:0.02em;margin-bottom:1.5rem;line-height:1.3}
+.hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.75rem}
+.meta-pill{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted);background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:5px 14px}
+.meta-pill i{font-size:14px;color:var(--navy3)}
+.badge-open{background:var(--goldbg);border:1px solid #E8B30A;color:var(--gold);font-size:12px;padding:5px 14px;border-radius:20px;font-weight:500;letter-spacing:0.04em}
+.hero-bio{font-size:16px;line-height:1.7;color:var(--text);max-width:520px;margin-bottom:2rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--navy);color:#fff;padding:13px 28px;border-radius:22px;font-size:14px;font-weight:500;cursor:pointer;transition:background 0.2s;border:none}
+.btn-primary:hover{background:var(--navy2)}
+.btn-outline{display:flex;align-items:center;gap:7px;background:transparent;color:var(--navy);padding:13px 24px;border-radius:22px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;border:1.5px solid var(--line2)}
+.btn-outline:hover{border-color:var(--navy)}
+.hero-right{display:flex;flex-direction:column;align-items:center;gap:12px}
+.avatar-wrap{width:160px;height:160px;border-radius:50%;background:var(--bg3);border:3px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:48px;font-weight:700;color:var(--navy);overflow:hidden;flex-shrink:0}
+.avatar-wrap img{width:100%;height:100%;object-fit:cover;display:none}
+.photo-btn{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);border:1px dashed var(--line2);border-radius:10px;padding:6px 12px;cursor:pointer;transition:all 0.2s}
+.photo-btn:hover{color:var(--navy);border-color:var(--navy)}
+#photo-upload{display:none}
+
+.stats-bar{background:var(--navy);padding:2.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.stat{text-align:center;padding:0 1rem;border-right:1px solid rgba(255,255,255,0.1)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:700;line-height:1;color:#fff;display:block}
+.stat-num em{color:#FFF8E6;font-style:normal}
+.stat-desc{font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.05em;text-transform:uppercase;margin-top:4px;display:block}
+
+section{padding:5rem 2.5rem}
+.section-inner{max-width:800px;margin:0 auto}
+.section-label{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--navy3);margin-bottom:0.75rem}
+h2{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:2rem}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.service-card{background:var(--bg);padding:1.75rem 1.5rem;transition:background 0.2s}
+.service-card:hover{background:var(--bg2)}
+.s-icon{width:36px;height:36px;border-radius:10px;background:var(--bg2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.s-icon i{font-size:18px;color:var(--navy3)}
+.s-title{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:0.4rem}
+.s-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+.exp-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.exp{background:var(--bg);padding:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.exp-dot{width:10px;height:10px;border-radius:50%;background:var(--navy3);margin-top:8px;flex-shrink:0}
+.exp-co{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:600;color:var(--ink)}
+.exp-role{font-size:13px;color:var(--navy3);font-weight:500;margin-bottom:2px}
+.exp-period{font-size:12px;color:var(--muted);margin-bottom:8px}
+.exp-desc{font-size:13px;color:var(--text);line-height:1.6}
+.exp-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.etag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+
+.skills-section{display:flex;flex-direction:column;gap:2rem}
+.skills-group-title{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy3);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--line)}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:8px;padding-top:4px}
+.skill-tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--navy3);background:rgba(30,68,152,0.07);border:1px solid rgba(30,68,152,0.15);border-radius:20px;padding:5px 13px}
+.skill-tag i{font-size:13px}
+.cert-tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:5px 13px}
+
+.contact-section{background:var(--navy);padding:5rem 2.5rem}
+.contact-inner{max-width:640px;margin:0 auto;text-align:center}
+.contact-inner h2{color:#fff;margin-bottom:0.75rem}
+.contact-label{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.75rem}
+.contact-sub{font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:2rem;line-height:1.6}
+.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:2.5rem}
+.c-link{display:flex;align-items:center;gap:7px;padding:12px 24px;border-radius:22px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s}
+.c-link-primary{background:#fff;color:var(--navy);border:none}
+.c-link-primary:hover{background:var(--goldbg);color:var(--gold)}
+.c-link-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.2)}
+.c-link-outline:hover{border-color:#fff}
+.divider{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.12)}
+.divider span{font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.cf input,.cf textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:12px 16px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;margin-bottom:10px}
+.cf input:focus,.cf textarea:focus{border-color:rgba(255,255,255,0.4)}
+.cf input::placeholder,.cf textarea::placeholder{color:rgba(255,255,255,0.3)}
+.cf textarea{height:110px;resize:vertical;margin-bottom:0}
+.cf .btn-send{background:#fff;color:var(--navy);padding:12px 28px;border-radius:22px;font-size:14px;font-weight:500;cursor:pointer;border:none;margin-top:10px;transition:background 0.2s}
+.cf .btn-send:hover{background:var(--goldbg);color:var(--gold)}
+
+footer{background:var(--ink);padding:1.75rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-l{font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:0.04em}
+.footer-r{display:flex;gap:16px}
+.f-link{font-size:12px;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:5px;transition:color 0.2s}
+.f-link:hover{color:#fff}
+
+@media(max-width:640px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  nav .nav-links,.nav-li{display:none}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Radek Řeháček</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a class="nav-li" href="https://www.linkedin.com/in/radekrehacek/" target="_blank">
+      <i class="ti ti-brand-linkedin"></i> LinkedIn
+    </a>
+    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire me</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Prague · Open to remote worldwide</div>
+      <div class="hero-name">Radek<br><span>Řeháček</span></div>
+      <div class="hero-title-line">IT Project Manager &amp; Agile Delivery Lead</div>
+      <div class="hero-meta">
+        <span class="meta-pill"><i class="ti ti-map-pin"></i> Prague, Czech Republic</span>
+        <span class="meta-pill"><i class="ti ti-world"></i> English · Czech</span>
+        <span class="badge-open">Open to remote</span>
+      </div>
+      <p class="hero-bio">Experienced IT Project and Delivery Manager with 10+ years leading complex technology and business transformation initiatives across fintech, SaaS, and enterprise environments. I combine strategic thinking with a hands-on approach — from planning through execution, across MENA, GCC, and European markets.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start a conversation</button>
+        <a class="btn-outline" href="https://www.linkedin.com/in/radekrehacek/" target="_blank">
+          <i class="ti ti-brand-linkedin"></i> View LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="avatar-wrap" id="avatar">RŘ
+        <img id="avatar-img" src="">
+      </div>
+      <label class="photo-btn" for="photo-upload">
+        <i class="ti ti-camera"></i> Upload photo
+      </label>
+      <input type="file" id="photo-upload" accept="image/*">
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-num">10<em>+</em></span>
+    <span class="stat-desc">Years experience</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">30<em>+</em></span>
+    <span class="stat-desc">Projects delivered</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">$4<em>M+</em></span>
+    <span class="stat-desc">Budget managed</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">3<em>×</em></span>
+    <span class="stat-desc">MENA market expansions</span>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-inner">
+    <div class="section-label">What I offer</div>
+    <h2>Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-layout-kanban"></i></div>
+        <div class="s-title">Agile Delivery</div>
+        <p class="s-desc">End-to-end Scrum & Kanban delivery — sprint planning, OKR alignment, roadmap governance, and cross-team coordination.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-transform"></i></div>
+        <div class="s-title">IT Transformation</div>
+        <p class="s-desc">Leading greenfield and migration projects — from Data Analytics platforms to Microsoft 365 rollouts and Disaster Recovery.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-network"></i></div>
+        <div class="s-title">Portfolio Management</div>
+        <p class="s-desc">Strategic portfolio governance, quarterly roadmap planning, dependency management, and delivery capacity balancing.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-users"></i></div>
+        <div class="s-title">Stakeholder Management</div>
+        <p class="s-desc">Coordinating distributed international teams, external vendors, and C-level stakeholders across complex multi-market environments.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-settings-automation"></i></div>
+        <div class="s-title">Process Design</div>
+        <p class="s-desc">Designing and establishing delivery frameworks, ways of working, and transparency tools that improve predictability and collaboration.</p>
+      </div>
+      <div class="service-card">
+        <div class="s-icon"><i class="ti ti-shield-check"></i></div>
+        <div class="s-title">Risk & Recovery</div>
+        <p class="s-desc">BCM planning, disaster recovery strategy, rollback management, and getting troubled projects back on track.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="section-inner">
+    <div class="section-label">Career history</div>
+    <h2>Experience</h2>
+    <div class="exp-list">
+      <div class="exp">
+        <div class="exp-dot"></div>
+        <div>
+          <div class="exp-role">IT Project Manager & Agile Delivery Lead</div>
+          <div class="exp-co">Ooredoo Fintech</div>
+          <div class="exp-period">Oct 2023 – Jun 2026 · Prague (remote, MENA/GCC markets)</div>
+          <div class="exp-desc">Led digital banking transformation across multiple MENA markets, supporting simultaneous expansion into three regional markets. Owned portfolio governance and quarterly roadmap planning (Q1–Q4), aligning delivery with OKRs. Managed Data Analytics & Infrastructure portfolio and delivered MS365 enterprise collaboration and Disaster Recovery projects.</div>
+          <div class="exp-tags">
+            <span class="etag">Agile</span><span class="etag">OKRs</span><span class="etag">Portfolio Governance</span><span class="etag">JIRA</span><span class="etag">Fintech</span><span class="etag">MENA/GCC</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp">
+        <div class="exp-dot"></div>
+        <div>
+          <div class="exp-role">Project Manager</div>
+          <div class="exp-co">UNIPROG</div>
+          <div class="exp-period">Aug 2020 – Oct 2023 · Prague</div>
+          <div class="exp-desc">Full project lifecycle management across IT development projects. Coordinated suppliers and cross-functional departments. Led Microsoft M365 implementation and managed development team collaboration.</div>
+          <div class="exp-tags">
+            <span class="etag">IT Projects</span><span class="etag">Microsoft M365</span><span class="etag">Vendor Coordination</span><span class="etag">Scrum</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp">
+        <div class="exp-dot"></div>
+        <div>
+          <div class="exp-role">IT Project Manager</div>
+          <div class="exp-co">Seznam.cz</div>
+          <div class="exp-period">Apr 2019 – Jun 2020 · Prague</div>
+          <div class="exp-desc">Contributed to greenfield project portfolio management (P3M3). Implemented Prince2 Agile framework and Scrum methodology, helping standardise project management practices across the organisation.</div>
+          <div class="exp-tags">
+            <span class="etag">P3M3</span><span class="etag">Prince2 Agile</span><span class="etag">Scrum</span><span class="etag">PMO</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp">
+        <div class="exp-dot"></div>
+        <div>
+          <div class="exp-role">Project Manager & Business Rollout Cutover Manager</div>
+          <div class="exp-co">O2 Czech Republic</div>
+          <div class="exp-period">Sep 2018 – Feb 2019 · Prague</div>
+          <div class="exp-desc">Managed rollout cutover planning and execution for large-scale application mojeO2. Handled rollback and disaster recovery strategy. Managed CAPEX project budget exceeding 100M CZK.</div>
+          <div class="exp-tags">
+            <span class="etag">Rollout Management</span><span class="etag">Disaster Recovery</span><span class="etag">CAPEX 100M CZK</span><span class="etag">ICT</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp">
+        <div class="exp-dot"></div>
+        <div>
+          <div class="exp-role">Head of IT Development</div>
+          <div class="exp-co">Hypermedia</div>
+          <div class="exp-period">Oct 2016 – Jul 2017 · Prague</div>
+          <div class="exp-desc">Led a development team across PHP, JavaScript, UX/UI and HTML/CSS disciplines. Responsible for internal product portfolio development and introduced Agile Scrum methodology as Scrum Master.</div>
+          <div class="exp-tags">
+            <span class="etag">Team Leadership</span><span class="etag">Scrum Master</span><span class="etag">Product Development</span><span class="etag">UX/UI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Capabilities</div>
+    <h2>Skills & tooling</h2>
+    <div class="skills-section">
+      <div>
+        <div class="skills-group-title">Methodologies</div>
+        <div class="tags-wrap">
+          <span class="skill-tag"><i class="ti ti-refresh"></i> Agile / Scrum</span>
+          <span class="skill-tag"><i class="ti ti-sitemap"></i> PRINCE2 Foundation</span>
+          <span class="skill-tag"><i class="ti ti-certificate"></i> PRINCE2 Practitioner</span>
+          <span class="skill-tag"><i class="ti ti-layout-kanban"></i> Kanban</span>
+          <span class="skill-tag"><i class="ti ti-arrows-shuffle"></i> Hybrid delivery</span>
+          <span class="skill-tag"><i class="ti ti-target"></i> OKR planning</span>
+          <span class="skill-tag"><i class="ti ti-briefcase"></i> Portfolio governance</span>
+          <span class="skill-tag"><i class="ti ti-git-merge"></i> P3M3</span>
+        </div>
+      </div>
+      <div>
+        <div class="skills-group-title">Tools & platforms</div>
+        <div class="tags-wrap">
+          <span class="skill-tag"><i class="ti ti-brand-trello"></i> JIRA</span>
+          <span class="skill-tag"><i class="ti ti-notes"></i> Confluence</span>
+          <span class="skill-tag"><i class="ti ti-calendar-stats"></i> MS Project</span>
+          <span class="skill-tag"><i class="ti ti-brand-windows"></i> Microsoft 365</span>
+          <span class="skill-tag"><i class="ti ti-chart-dots"></i> YouTrack</span>
+          <span class="skill-tag"><i class="ti ti-table"></i> MS Office</span>
+        </div>
+      </div>
+      <div>
+        <div class="skills-group-title">Key focus areas</div>
+        <div class="tags-wrap">
+          <span class="skill-tag"><i class="ti ti-map-route"></i> Roadmap planning</span>
+          <span class="skill-tag"><i class="ti ti-users"></i> Stakeholder engagement</span>
+          <span class="skill-tag"><i class="ti ti-arrows-cross"></i> Cross-team collaboration</span>
+          <span class="skill-tag"><i class="ti ti-alert-triangle"></i> Risk management</span>
+          <span class="skill-tag"><i class="ti ti-settings-2"></i> Delivery process design</span>
+          <span class="skill-tag"><i class="ti ti-building-bank"></i> Digital banking</span>
+          <span class="skill-tag"><i class="ti ti-shield"></i> Disaster recovery</span>
+          <span class="skill-tag"><i class="ti ti-building"></i> Vendor management</span>
+        </div>
+      </div>
+      <div>
+        <div class="skills-group-title">Languages</div>
+        <div class="tags-wrap">
+          <span class="cert-tag"><i class="ti ti-language" style="font-size:13px"></i> English (B2)</span>
+          <span class="cert-tag"><i class="ti ti-language" style="font-size:13px"></i> Czech (Native)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-label">Get in touch</div>
+    <h2>Let's work together</h2>
+    <p class="contact-sub">Based in Prague, open to remote engagements globally. Reach out on LinkedIn or drop me a message — I reply within 24 hours.</p>
+    <div class="contact-links">
+      <a class="c-link c-link-primary" href="https://www.linkedin.com/in/radekrehacek/" target="_blank">
+        <i class="ti ti-brand-linkedin"></i> Connect on LinkedIn
+      </a>
+      <a class="c-link c-link-outline" href="mailto:r.rehacek@gmail.com">
+        <i class="ti ti-mail"></i> r.rehacek@gmail.com
+      </a>
+    </div>
+    <div class="divider"><span>or send a message</span></div>
+    <div class="cf">
+      <div class="form-row">
+        <input type="text" placeholder="Your name">
+        <input type="email" placeholder="Email address">
+      </div>
+      <input type="text" placeholder="Company / Project">
+      <textarea placeholder="Tell me about your project — scope, timeline, challenges..."></textarea>
+      <button class="btn-send">Send message</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-l">© 2026 Radek Řeháček · IT Project Manager & Agile Delivery Lead · Prague, CZ</div>
+  <div class="footer-r">
+    <a class="f-link" href="https://www.linkedin.com/in/radekrehacek/" target="_blank"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+    <a class="f-link" href="mailto:r.rehacek@gmail.com"><i class="ti ti-mail"></i> Email</a>
+    <span class="f-link"><i class="ti ti-clock"></i> CET (UTC+1)</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('photo-upload').addEventListener('change',function(e){
+  const file=e.target.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(ev){
+    const img=document.getElementById('avatar-img');
+    img.src=ev.target.result;
+    img.style.display='block';
+    document.getElementById('avatar').style.fontSize='0';
+    document.querySelector('.photo-btn').style.display='none';
+  };
+  reader.readAsDataURL(file);
+});
+</script>
+</body>
+</html>
